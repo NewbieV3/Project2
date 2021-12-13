@@ -1,16 +1,37 @@
 package Project5;
 
-public abstract class Buyer {
+import Guest.Robot;
 
-    private int age;
+public class Buyer {
 
-    public void setAge(int buyerAge){
+    private Robot android;
+
+    public Buyer(){
+    android = new Robot(100);
+    Men.age = 30;
+    Women.age = 14;
+
+    }
+
+        public void setAge(int buyerAge){
         if (buyerAge<21) take();
-           else {take1();}
+        else {take1();}
     }
 
     public int getAge(){
-        return age;
+        return Men.age;
+    }
+
+    public int getAge2(){
+        return Women.age;
+    }
+
+    public Robot getAndroid() {
+        return android;
+    }
+
+    public void setAndroid(Robot android) {
+        this.android = android;
     }
 
     public void take(){

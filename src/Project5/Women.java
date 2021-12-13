@@ -2,11 +2,9 @@ package Project5;
 
 public class Women extends Buyer {
 
-    String name;
-    String gender;
-    int age;
+        public static int age;
+        public Women(){}
 
-    public void take (){
-        System.out.println("Берет с полки сок.");
-    }
+        public void take (){ System.out.println("Берет с полки сок."); }
 }
+
