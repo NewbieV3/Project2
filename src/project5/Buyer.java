@@ -1,15 +1,15 @@
 package project5;
 
-import guest.Person;
+import guest.Human;
 
 public class Buyer {
 
 private String name;
-private Person per;
+private Human person;
 
     public Buyer(){
 name = "Кто-то (м) или (ж)";
-per = new Person(20);
+person = new Human(20);
     }
 
     public String getName() {
@@ -20,12 +20,12 @@ per = new Person(20);
         this.name = name;
     }
 
-    public Person getPer() {
-        return per;
+    public Human getPerson() {
+        return person;
     }
 
-    public void setPer(Person per) {
-        this.per = per;
+    public void setPerson(Human person) {
+        this.person = person;
     }
 
     public void take() {

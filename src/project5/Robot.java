@@ -1,11 +1,9 @@
 package project5;
 
-public class Robot extends Buyer {
-
-
+public class Robot extends Buyer{
 
     public void take(){
-        System.out.println("Проверка срока годности товара");
+        System.out.println("Робот: Проверка срока годности товара");
     }
 
 }

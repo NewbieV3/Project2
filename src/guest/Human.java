@@ -1,9 +1,9 @@
 package guest;
 
-public class Person {
+public class Human {
     private int age;
 
-    public Person(int age) {
+    public Human(int age) {
         this.age = age;
     }
 
