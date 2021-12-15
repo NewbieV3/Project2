@@ -1,9 +1,9 @@
-package Guest;
+package guest;
 
-public class Robot {
-
+public class Person {
     private int age;
-    public Robot (int age){
+
+    public Person(int age) {
         this.age = age;
     }
 
