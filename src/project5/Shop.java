@@ -7,62 +7,56 @@ public class Shop {
     public static void main(String[] args) {
         Human myBuyer = new Buyer(20);
         Buyer android = new Robot(1);
-        Apple a = new Apple(500, "000001");
-        Potato p = new Potato(400, "000002");
-        a.setQuantity(300);
-        p.setQuantity(200);
-        System.out.println("Общее количество, Яблоки: " + a.getQuantity() + " шт.");
-        System.out.println("Общее количество, Картофель: " + p.getQuantity() + " шт.");
+        Apple appTotal = new Apple(500, "000001");
+        Potato potTotal = new Potato(400, "000002");
+        appTotal.setQuantity(200);
+        potTotal.setQuantity(150);
+        System.out.println("Общее количество, Яблоки: " + appTotal.getQuantity() + " шт.");
+        System.out.println("Общее количество, Картофель: " + potTotal.getQuantity() + " шт.");
 
         Human olga = new Human(18, "female");
         System.out.print(olga);
         olga.setName(" Покупатель - Ольга.");
         System.out.println(olga.getName());
 
-
         myBuyer.take();
-        Apple a1 = new Apple(50, "000003");
-        Potato p1 = new Potato(70, "000004");
-        System.out.println("Яблоки, " + a1.getQuantity() + " шт.");
-        System.out.println("Картофель, " + p1.getQuantity() + " шт.");
-        int a2 = a.getQuantity() - a1.getQuantity();
-        int p2 = p.getQuantity() - p1.getQuantity();
-        System.out.println("Остаток на полке: " + a2);
-        System.out.println("Остаток на полке: " + p2);
-
-        android.take();
-        Apple a3 = new Apple(10, "000005");
-        Potato p3 = new Potato(20, "000006");
-        int a4 = a.getQuantity() - (a1.getQuantity() + a3.getQuantity());
-        int p4 = p.getQuantity() - (p1.getQuantity() + p3.getQuantity());
+        Apple appOlga = new Apple(20, "000003");
+        Potato potOlga = new Potato(15, "000004");
+        int appShelf = appTotal.getQuantity() - appOlga.getQuantity();
+        int potShelf = potTotal.getQuantity() - potOlga.getQuantity();
         int count = 0;
         int count1 = 0;
-        boolean spoiledFood = true;
-        if (spoiledFood == true) {
-            System.out.println("Убирает с полки испорченные продукты." + " Яблоки, " + a3.getQuantity() + " шт." + " Картофель, " + p3.getQuantity() + " шт.");
-
-            while (count != a3.getQuantity()) {
-                count++;
-                System.out.print("Взято: " + count + " шт., яблок");
-                System.out.println(" ,осталось: " + (a2 - count));
-
-            }
-            while (count1 != p3.getQuantity()) {
-                count1++;
-                System.out.print("Взято: " + count1 + " шт., картофеля");
-                System.out.println(" ,осталось: " + (p2 - count1));
-            }
-            System.out.println("Остаток на полке: " + a4);
-            System.out.println("Остаток на полке: " + p4);
-
-        } else {
-            System.out.println("Продолжает проверку полок.");
-
+        while (count < appOlga.getQuantity()) {
+            count++;
+            System.out.print("Взято: " + count + " шт., яблок");
+            System.out.println(" ,осталось: " + (appTotal.getQuantity() - count));
         }
+        while (count1 < potOlga.getQuantity()) {
+            count1++;
+            System.out.print("Взято: " + count1 + " шт., картофеля");
+            System.out.println(" ,осталось: " + (potTotal.getQuantity() - count1));
+        }
+        System.out.println("Остаток яблок на полке после покупки Ольги: " + appShelf + " шт.");
+        System.out.println("Остаток картофеля на полке после покупки Ольги: " + potShelf + " шт.");
 
+        android.take();
+        Apple appSpoiled = new Apple(10, "000005");
+        Potato potSpoiled = new Potato(20, "000006");
+        int appTakenByRobot = appTotal.getQuantity() - (appOlga.getQuantity() + appSpoiled.getQuantity());
+        int potTakenByRobot = potTotal.getQuantity() - (potOlga.getQuantity() + potSpoiled.getQuantity());
+
+        boolean isSpoiledFood = true;
+        if (isSpoiledFood) {
+            System.out.println("Убирает с полки испорченные продукты: ");
+            System.out.println("Яблоки, " + appSpoiled.getQuantity() + " шт.");
+            System.out.println("Картофель, " + potSpoiled.getQuantity() + " шт.");
+            System.out.println("Остаток на полке: " + appTakenByRobot);
+            System.out.println("Остаток на полке: " + potTakenByRobot);
+        } else {
+            System.out.println("Продолжает проверку полок. ");
+            System.out.println("Остаток на полке: " + appShelf);
+            System.out.println("Остаток на полке: " + potShelf);
+        }
     }
-    //System.out.println(a3.equals(p3));
-    //System.out.println(a3 == p3);  //без условия if невыполнимо
 
 }
-
